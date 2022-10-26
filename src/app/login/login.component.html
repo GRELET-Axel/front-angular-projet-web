@@ -1,0 +1,28 @@
+<div id="container">
+    <!-- zone de connexion -->
+    <form
+        *ngIf="!isLoggedIn"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+    <h1>Connexion</h1>
+    
+    <label><b>Email</b></label>
+    <input type="text"  for="username" name="username" required>
+   
+    <label><b>Mot de passe</b></label>
+    <input type="password" name="password" required>
+   
+    <input class="btn btn-primary btn-block" type="submit" id='submit' value='LOGIN' >
+  
+    
+    </form>
+    <div class="alert alert-success" *ngIf="isLoggedIn">
+        Logged in as {{ roles }}.
+      </div>
+   
+
+
+       
