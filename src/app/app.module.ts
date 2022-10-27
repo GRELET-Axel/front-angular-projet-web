@@ -47,7 +47,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTooltipModule,
     MatTableModule,
     MatPaginatorModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

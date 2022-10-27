@@ -13,23 +13,12 @@ import { VilleService } from '../_services/ville.service';
 })
 export class VilleComponent implements OnInit {
 
-  public displayedColumns = ['nomVille', 'codePostal','actions'];
+  public displayedColumns = ['nomVille', 'codePostal'];
   villes: ville[] = [];
-  // item: ville;
   public dataSource = new MatTableDataSource<ville>();
 
   sortFunction: ((data: ville[], sort: MatSort) => ville[]) | undefined;
-
   titre = '';
-
-  hasErrors = false;
-  errors = '';
-
-  isLoading = false;
-
-  hasDroitAjout = false;
-  hasDroitModif = false;
-  hasDroitSuppr = false;
 
   @ViewChild(MatSort) sort: MatSort | undefined;
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
@@ -40,19 +29,35 @@ export class VilleComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.villes)
-    this.lister();
-    this.titre = 'Gérer les Villes';
+    this.villeService.getVilles()
+      .pipe(first())
+      .subscribe(
+        value => {
+          this.villes = value
+          this.dataSource.data = this.villes;
+          console.log(this.villes)
+        });    
+        this.titre = 'Gérer les Villes';
   }
 
-  lister() {
-    this.villeService.getVilles().subscribe(
-      value => this.villes = value
-    );
-  }
+  // lister() {
+  //   this.villeService.getVilles().subscribe(
+  //     value => this.villes = value);
+  // }
 
-  rafraichirListe() {
-    this.isLoading = true;
-    this.dataSource.data = this.villes;
-    this.isLoading = false;
-  }
+  // lister() {
+  //   this.villeService.getVilles()
+  //     .pipe(first())
+  //     .subscribe(
+  //       value => {
+  //         this.villes = value
+  //         this.dataSource.data = this.villes;
+  //       });
+  // }
+
+  // rafraichirListe() {
+  //   this.isLoading = true;
+  //   this.dataSource.data = this.villes;
+  //   this.isLoading = false;
+  // }
 }
