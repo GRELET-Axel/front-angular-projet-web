@@ -1,1 +1,17 @@
-<p>campus works!</p>
+<!-- <div titre="{{ titre }}"></div> -->
+
+<div class="liste-page" id="lipVilleList" >
+    <table id="tableVilleList" mat-table [dataSource]="dataSource" matSort matSortActive="nomCampus" matSortDirection="asc">
+      <ng-container matColumnDef='nomCampus'>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="colonne-40"> {{'Nom du campus'}} </th> -->
+        <td mat-cell id="mcenomCampus" *matCellDef="let element"> {{element.nom}} </td>
+      </ng-container>
+      <!-- <ng-container matColumnDef="actions">
+  
+  
+      </ng-container> -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  
