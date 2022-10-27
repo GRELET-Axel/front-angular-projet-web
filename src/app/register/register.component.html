@@ -8,24 +8,60 @@
         novalidate
       >
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="nom">nom</label>
           <input
             type="text"
             class="form-control"
-            name="username"
-            [(ngModel)]="form.username"
+            name="nom"
+            [(ngModel)]="form.nom"
             required
             minlength="3"
             maxlength="20"
-            #username="ngModel"
+            #nom="ngModel"
           />
-          <div class="alert-danger" *ngIf="username.errors && f.submitted">
-            <div *ngIf="username.errors">Username is required</div>
-            <div *ngIf="username.errors">
-              Username must be at least 3 characters
+          <div class="alert-danger" *ngIf="nom.errors && f.submitted">
+            <div *ngIf="nom.errors">nom is required</div>
+            <div *ngIf="nom.errors">
+              nom must be at least 3 characters
             </div>
-            <div *ngIf="username.errors">
-              Username must be at most 20 characters
+            <div *ngIf="nom.errors">
+              nom must be at most 20 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            [(ngModel)]="form.email"
+            required
+            email
+            #email="ngModel"
+          />
+          <div class="alert-danger" *ngIf="email.errors && f.submitted">
+            <div *ngIf="email.errors">Email is required</div>
+            <div *ngIf="email.errors">
+              Email must be a valid email address
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="prenom">prenom</label>
+          <input
+            type="prenom"
+            class="form-control"
+            name="prenom"
+            [(ngModel)]="form.prenom"
+            required
+            prenom
+            #prenom="ngModel"
+          />
+          <div class="alert-danger" *ngIf="prenom.errors && f.submitted">
+            <div *ngIf="prenom.errors">prenom is required</div>
+            <div *ngIf="prenom.errors">
+              prenom must be a valid prenom address
             </div>
           </div>
         </div>

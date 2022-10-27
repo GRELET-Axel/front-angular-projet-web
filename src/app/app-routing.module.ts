@@ -6,6 +6,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { ProfilComponent } from './profil/profil.component';
 import { VilleComponent } from './ville/ville.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [  
 { path: 'profil', component: ProfilComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
 { path: 'accueil', component: AccueilComponent },
 { path: 'campus', component: CampusComponent },
 { path: 'connexion', component: ConnexionComponent },
-{ path: 'login', component: LoginComponent }]
+{ path: 'login', component: LoginComponent },
+{ path: 'register', component: RegisterComponent }]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
