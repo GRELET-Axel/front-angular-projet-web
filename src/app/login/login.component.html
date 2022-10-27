@@ -1,37 +1,17 @@
-<div class="col-md-12">
-  <div class="card card-container">
-    <img
-      id="profile-img"
-      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-      class="profile-img-card"
-    />
-    <form
-      *ngIf="!isLoggedIn"
-      name="form"
-      (ngSubmit)="f.form.valid && onSubmit()"
-      #f="ngForm"
-      novalidate
-    >
+<div id="container">
+    <form  name="form" (ngSubmit)="f.form.valid && onSubmit()"  #f="ngForm" novalidate>
       <div class="form-group">
         <label for="username">Username</label>
-        <input
-          type="text"
-          class="form-control"
-          name="username"
-          [(ngModel)]="form.username"
-          required
-          #username="ngModel"
-        />
+        <input  type="text" class="form-control" name="username" [(ngModel)]="form.username"  required #username="ngModel"/>
         <div
           class="alert alert-danger"
           role="alert"
           *ngIf="username.errors && f.submitted"
         >
-          Username is required!
+          login requis
         </div>
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
+        <label for="password">mot de passe</label>
         <input
           type="password"
           class="form-control"
@@ -50,8 +30,6 @@
           <div *ngIf="password.errors">
             Password must be at least 6 characters
           </div>
-        </div>
-      </div>
       <div class="form-group">
         <button class="btn btn-primary btn-block">
           Login
@@ -66,13 +44,12 @@
           Login failed: {{ errorMessage }}
         </div>
       </div>
+        </div>
+        <input class="btn btn-primary btn-block" type="submit" id='submit' value='LOGIN' >
     </form>
-
-    <div class="alert alert-success" *ngIf="isLoggedIn">
-      Logged in as {{ roles }}.
-    </div>
   </div>
-</div>
+
+
 <!--<div id="container">
      zone de connexion 
     <form
