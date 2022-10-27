@@ -14,6 +14,7 @@ import { VilleComponent } from './ville/ville.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { CommonModule } from '@angular/common';
 
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
@@ -32,6 +33,7 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,

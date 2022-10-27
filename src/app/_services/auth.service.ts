@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { subscriptionLogsToBeFn } from 'rxjs/internal/testing/TestScheduler';
 
 
 const AUTH_API = +'http://localhost:8000/api/';
@@ -22,11 +23,14 @@ export class AuthService {
     }, httpOptions);
   }
 
-  register(username: string, email: string, password: string): Observable<any> {
-    return this.http.post(AUTH_API + 'register', {
-      username,
+  register(email: string, password: string, nom: string, prenom: string, telephone: string, administrateur: boolean): Observable<any> {
+    return this.http.post('https://localhost:8000/api/register', {
       email,
-      password
+      password,
+      nom,
+      prenom,
+      telephone,
+      administrateur
     }, httpOptions);
   }
 }

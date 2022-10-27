@@ -1,4 +1,4 @@
-<!--<div class="col-md-12">
+<!-- <div class="col-md-12">
     <div class="card card-container">
       <form
         *ngIf="!isSuccessful"
@@ -7,7 +7,7 @@
         #f="ngForm"
         novalidate
       >
-        <div class="form-group">
+        <div class="form-group col-2">
           <label for="nom">nom</label>
           <input
             type="text"
@@ -29,25 +29,7 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            name="email"
-            [(ngModel)]="form.email"
-            required
-            email
-            #email="ngModel"
-          />
-          <div class="alert-danger" *ngIf="email.errors && f.submitted">
-            <div *ngIf="email.errors">Email is required</div>
-            <div *ngIf="email.errors">
-              Email must be a valid email address
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
+        <div class="form-group col-2">
           <label for="prenom">prenom</label>
           <input
             type="prenom"
@@ -65,7 +47,7 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group col-2">
           <label for="email">Email</label>
           <input
             type="email"
@@ -83,7 +65,7 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group col-2">
           <label for="password">Password</label>
           <input
             type="password"
@@ -101,6 +83,24 @@
             </div>
           </div>
         </div>
+        <div class="form-group col-1">
+          <label for="administrateur">Admin</label>
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="administrateur"
+            [(ngModel)]="form.administrateur"
+            required
+            administrateur
+            #administrateur="ngModel"
+          />
+          <div class="alert-danger" *ngIf="administrateur.errors && f.submitted">
+            <div *ngIf="administrateur.errors">administrateur is required</div>
+            <div *ngIf="administrateur.errors">
+              administrateur error
+            </div>
+          </div>
+        </div>
         <div class="form-group">
           <button class="btn btn-primary btn-block">Sign Up</button>
         </div>
@@ -114,4 +114,56 @@
         Your registration is successful!
       </div>
     </div>
-  </div> -->
+  </div>
+  <!DOCTYPE html>
+<html> -->
+
+<!-- <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+</head> -->
+
+    <div class="register-photo">
+        <div class="form-container">
+            <div class="image-holder"></div>
+            <form method="post" *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                <h2 class="text-center"><strong>Créer</strong> votre compte.</h2>
+                <div class="form-group"><input class="form-control" type="email" name="email" [(ngModel)]="form.email" required email #email="ngModel" placeholder="Email"></div>
+                <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                  <div *ngIf="email.errors">Email requis</div>
+                  <div *ngIf="email.errors">Email doit être valide !</div>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="password" name="password" [(ngModel)]="form.password" required password #password="ngModel" minlength="6" placeholder="Password">
+                  <div class="alert-danger" *ngif="email.errors && f.submitted">
+                    <div *ngIf="password.errors?.['minlength']">Password requierd 6 characteres minimum !</div>
+                    <div *ngIf="password.errors?.['required']">Password requis !</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" type="password" name="passwordRepeat" [(ngModel)]="form.passwordRepeat" required passwordRepeat #passwordRepeat="ngModel" minlength="6" placeholder="Password (repeat)">
+                  <div class="alert-danger" *ngif="email.errors && f.submitted">
+                    <div *ngIf="passwordRepeat.errors?.['minlength']">Password requierd 6 characteres minimum !</div>
+                    <div *ngIf="passwordRepeat.errors?.['required']">Password requis !</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="administrateur" [(ngModel)]="form.administrateur" required administrateur #administrateur="ngModel">
+                        Admin
+                      </label>
+                    </div>
+                </div>
+                <div class="form-group"><button class="button btn btn-primary btn-block" type="submit">Sign Up</button></div>
+                <a href="#" class="already">You already have an account? Login here.</a>
+                <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                  Signup failed!<br />{{ errorMessage }}
+                </div>
+              </form>
+        </div>
+    </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script> -->
