@@ -10,6 +10,17 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { CampusComponent } from './campus/campus.component';
 import { VilleComponent } from './ville/ville.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+
+
 
 @NgModule({
   declarations: [
@@ -24,7 +35,18 @@ import { ConnexionComponent } from './connexion/connexion.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSortModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatSortModule,
+    MatTooltipModule,
+    MatSortModule,
+    MatTooltipModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
