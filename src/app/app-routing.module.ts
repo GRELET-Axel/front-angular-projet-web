@@ -13,6 +13,7 @@ const routes: Routes = [
 { path: 'campus', component: CampusComponent },
 { path: 'connexion', component: ConnexionComponent }]
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

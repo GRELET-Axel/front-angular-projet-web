@@ -1,1 +1,23 @@
-<p>ville works!</p>
+<!-- <div titre="{{ titre }}"></div> -->
+
+<div class="liste-page" id="lipVilleList" >
+  <table id="tableVilleList" mat-table [dataSource]="dataSource" matSort matSortActive="nomVille" matSortDirection="asc">
+    <ng-container matColumnDef='nomVille'>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="colonne-40"> {{'Nom de la ville'}} </th> -->
+      <td mat-cell id="mcenomVille" *matCellDef="let element"> {{element.nom}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef='codePostal'>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="colonne-40"> {{'Code postal de la ville'}} </th>
+      <td mat-cell id="mcecodePostal" *matCellDef="let element"> {{element.codePostal}} </td>
+    </ng-container>
+
+
+    <!-- <ng-container matColumnDef="actions">
+
+
+    </ng-container> -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
