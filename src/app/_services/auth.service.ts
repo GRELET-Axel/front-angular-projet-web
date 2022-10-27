@@ -16,7 +16,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post(AUTH_API + 'login_check', {
+    return this.http.post('https://localhost:8000/api/login_check', {
       email,
       password
     }, httpOptions);
