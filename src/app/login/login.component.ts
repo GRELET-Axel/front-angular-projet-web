@@ -35,12 +35,12 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(username, password).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveUser(data);
+        this.tokenStorage.saveToken(data.token);
+        // this.tokenStorage.saveUser(base64(data.token));
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        
+        console.log(btoa(data.token.split('.')[1])) // TODO use Buffer
         this.reloadPage();
       },
       err => {
