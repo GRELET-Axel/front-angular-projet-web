@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
@@ -8,6 +8,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   form: any = {
     username: null,
@@ -16,18 +17,16 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  roles: string[] = [];
+  // roles: string[] = [];
 
   constructor(private authService: AuthService,private router: Router, public tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
-   // this.tokenStorage.signOut();
- 
-    if (this.tokenStorage.getToken()) {
-      this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().roles;
-      
-    }
+   if(this.tokenStorage.getToken()){
+    this.tokenStorage.signOut();
+    // TODO requetes api pour kill le token
+    this.isLoggedIn = false;
+   }
   }
 
   onSubmit(): void {
@@ -35,13 +34,16 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(username, password).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.token);
-        // this.tokenStorage.saveUser(base64(data.token));
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().roles;
-        console.log(btoa(data.token.split('.')[1])) // TODO use Buffer
-        this.reloadPage();
+        if(data.code == "200" && data.token && data.user_id){
+          this.tokenStorage.saveToken(data.token);
+          this.tokenStorage.saveUser(data.user_id);
+          this.isLoginFailed = false;
+          this.isLoggedIn = true;
+          this.router.navigate(['/accueil']);
+        }
+        else{
+          //TODO Invalide password/email, afficher une erreure
+        }
       },
       err => {
         this.errorMessage = err.error.message;
@@ -49,12 +51,6 @@ export class LoginComponent implements OnInit {
       }
 
     );
-    if (this.isLoggedIn = true)
-      this.router.navigate(['/accueil']);
-  }
-
-  reloadPage(): void {
-    window.location.reload();
   }
 
 }

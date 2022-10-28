@@ -23,7 +23,7 @@ export class LoginActivateGuard implements CanActivate {
       } 
       else
       {
-      this.router.navigate(['/loggin']);
+      this.router.navigate(['/']);
       return false;
       }
     
