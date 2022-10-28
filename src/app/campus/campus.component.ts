@@ -16,6 +16,7 @@ export class CampusComponent implements OnInit {
   public displayedColumns = ['nomCampus'];
   campuss: campus[] = [];
   public dataSource = new MatTableDataSource<campus>();
+  
 
   sortFunction: ((data: campus[], sort: MatSort) => campus[]) | undefined;
   titre = '';
@@ -38,5 +39,10 @@ export class CampusComponent implements OnInit {
           console.log(this.campuss)
         });    
         this.titre = 'Gérer les Campus';
+        this.dataSource.filterPredicate = function(data: any, filterValue: string) {
+        return data.specificColumn /** replace this with the column name you want to filter */
+      .trim()
+      .toLocaleLowerCase().indexOf(filterValue.trim().toLocaleLowerCase()) >= 0;
+};
   }
 }
