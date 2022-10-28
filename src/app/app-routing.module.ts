@@ -3,15 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { CampusComponent } from './campus/campus.component';
 import { ProfilComponent } from './profil/profil.component';
-import { VilleComponent } from './ville/ville.component';
+import { VilleListComponent } from './ville/ville-list/ville-list.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { VilleFormComponent } from './ville/ville-form/ville-form.component';
 
 const routes: Routes = [  
 { path: 'profil', component: ProfilComponent, data:{requiresLogin: true} },
-{ path: 'ville', component: VilleComponent , data:{requiresLogin: true}},
+{ path: 'ville', component: VilleListComponent , data:{requiresLogin: true}},
 { path: 'accueil', component: AccueilComponent, data:{requiresLogin: true}},
 { path: 'campus', component: CampusComponent, data:{requiresLogin: true} },
+{ path: 'villeform', component: VilleFormComponent, data:{requiresLogin: true} },
 { path: '', component: LoginComponent },
 { path: 'register', component: RegisterComponent }]
 

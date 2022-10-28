@@ -25,4 +25,18 @@ export class VilleService {
   public getVilles(): Observable<ville[]> {
     return this.httpClient.get<ville[]>('https://localhost:8000/api/villes.json', httpOptions);
   }
+
+    /**
+   * Supprimer une ville de l'API
+   */
+  public deleteVille(idVille: number): Observable<ville> {
+    return this.httpClient.delete<ville>('https://localhost:8000/api/villes/' + idVille , httpOptions);
+  }
+
+    /**
+   * Supprimer une ville de l'API
+   */
+    public addVille(): Observable<ville> {
+     return this.httpClient.post<ville>('https://localhost:8000/api/villes/', httpOptions);
+    }
 }

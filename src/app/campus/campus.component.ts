@@ -13,7 +13,7 @@ import { CampusService } from '../_services/campus.service';
 })
 export class CampusComponent implements OnInit {
 
-  public displayedColumns = ['nomCampus'];
+  public displayedColumns = ['nomCampus', 'actions'];
   campuss: campus[] = [];
   public dataSource = new MatTableDataSource<campus>();
   
@@ -29,7 +29,10 @@ export class CampusComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.campuss)
+    this.lister();
+  }
+
+  lister(){
     this.campusService.getCampuss()
       .pipe(first())
       .subscribe(
@@ -37,12 +40,43 @@ export class CampusComponent implements OnInit {
           this.campuss = value
           this.dataSource.data = this.campuss;
           console.log(this.campuss)
-        });    
-        this.titre = 'Gérer les Campus';
-        this.dataSource.filterPredicate = function(data: any, filterValue: string) {
-        return data.specificColumn /** replace this with the column name you want to filter */
-      .trim()
-      .toLocaleLowerCase().indexOf(filterValue.trim().toLocaleLowerCase()) >= 0;
-};
+        })
+  }
+
+  supprimer(campus: campus) {
+    this.campusService.deleteCampus(campus.id).subscribe(
+      value => {
+      
+          let index = -1
+          for (let j = 0; j < this.campuss.length; j++) {
+            if (this.campuss[j].id === campus.id) {
+              index = j;
+              this.campuss.splice(index, 1);
+              break;
+            }
+            this.lister();
+          }
+        })
+      }
+
+  modifier(_t42: any) {
+  throw new Error('Method not implemented.');
+  }
+
+
+  ajouter() {
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+        this.dataSource.paginator.firstPage();
+    }
+}
+
+  rafraichirListe() {
+    this.dataSource.data = this.campuss;
   }
 }
