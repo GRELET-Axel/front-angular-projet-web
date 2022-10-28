@@ -2,18 +2,16 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { CampusComponent } from './campus/campus.component';
-import { ConnexionComponent } from './connexion/connexion.component';
 import { ProfilComponent } from './profil/profil.component';
 import { VilleComponent } from './ville/ville.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [  
-{ path: 'profil', component: ProfilComponent },
-{ path: 'ville', component: VilleComponent },
+{ path: 'profil', component: ProfilComponent, data:{requiresLogin: true} },
+{ path: 'ville', component: VilleComponent , data:{requiresLogin: true}},
 { path: 'accueil', component: AccueilComponent, data:{requiresLogin: true}},
-{ path: 'campus', component: CampusComponent },
-{ path: 'connexion', component: ConnexionComponent },
+{ path: 'campus', component: CampusComponent, data:{requiresLogin: true} },
 { path: '', component: LoginComponent },
 { path: 'register', component: RegisterComponent }]
 

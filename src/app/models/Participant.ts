@@ -1,13 +1,13 @@
 
 export class Participant {
-    public pseudo: string | undefined;
-    public lastName: string | undefined;
-    public firstName: string | undefined;
-    public phone: string | undefined;
-    public mail: string | undefined;
-    public admin: boolean | undefined;
-    public active: boolean | undefined;
+    public pseudo: string ,
+    public lastName: string ,
+    public firstName: string ,
+    public phone: string,
+    public mail: string,
+    public admin: boolean,
+    public active: boolean ,
     //public registrations: Registration[];
-    public password: string | undefined;
+    public password: string,
    // public urlPicture: string;
-  }
+  } 

@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private authService: AuthService,private router: Router, private tokenStorage: TokenStorageService) { }
+  constructor(private authService: AuthService,private router: Router, public tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
    // this.tokenStorage.signOut();
