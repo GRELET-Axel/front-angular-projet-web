@@ -21,4 +21,11 @@ const httpOptions = {
     public getCampuss(): Observable<campus[]> {
       return this.httpClient.get<campus[]>('https://localhost:8000/api/campuses.json', httpOptions);
     }
+
+    /**
+   * Supprimer un campus de l'API
+   */
+  public deleteCampus(id: number): Observable<campus> {
+    return this.httpClient.delete<campus>('https://localhost:8000/api/campuses/' + id , httpOptions);
+  }
   }

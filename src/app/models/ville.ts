@@ -1,7 +1,7 @@
 export class ville {
     constructor(
-      public idVille: string,
-      public nomVille: string,
+      public id: number,
+      public nom: string,
       public codePostal: string
     ) { }
   }

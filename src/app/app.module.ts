@@ -9,7 +9,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProfilComponent } from './profil/profil.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { CampusComponent } from './campus/campus.component';
-import { VilleComponent } from './ville/ville.component';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,6 +20,10 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CommonModule } from '@angular/common';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { MatIconModule } from '@angular/material/icon';
+import { VilleListComponent } from './ville/ville-list/ville-list.component';
+import { VilleFormComponent } from './ville/ville-form/ville-form.component';
+
 
 
 @NgModule({
@@ -30,9 +33,10 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     ProfilComponent,
     AccueilComponent,
     CampusComponent,
-    VilleComponent,
+    VilleListComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    VilleFormComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,8 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     MatTableModule,
     MatPaginatorModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
