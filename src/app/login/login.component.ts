@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
           this.tokenStorage.saveUser(data.user_id);
           this.isLoginFailed = false;
           this.isLoggedIn = true;
-          this.router.navigate(['/accueil']);
         }
         else{
           //TODO Invalide password/email, afficher une erreure
@@ -51,6 +50,8 @@ export class LoginComponent implements OnInit {
       }
 
     );
+
+    this.router.navigate(['/accueil']);
   }
 
 }
