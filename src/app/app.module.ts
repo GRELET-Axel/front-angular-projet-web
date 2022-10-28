@@ -10,7 +10,6 @@ import { ProfilComponent } from './profil/profil.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { CampusComponent } from './campus/campus.component';
 import { VilleComponent } from './ville/ville.component';
-import { ConnexionComponent } from './connexion/connexion.component';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
@@ -32,7 +31,6 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     AccueilComponent,
     CampusComponent,
     VilleComponent,
-    ConnexionComponent,
     LoginComponent,
     RegisterComponent
   ],
