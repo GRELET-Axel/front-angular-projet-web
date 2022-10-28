@@ -27,6 +27,7 @@ export class VilleComponent implements OnInit {
     private villeService: VilleService,
   ) { }
 
+
   ngOnInit(): void {
     console.log(this.villes)
     this.villeService.getVilles()
