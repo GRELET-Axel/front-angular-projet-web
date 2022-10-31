@@ -23,14 +23,15 @@ export class AuthService {
     }, httpOptions);
   }
 
-  register(email: string, password: string, nom: string, prenom: string, telephone: string, administrateur: boolean): Observable<any> {
+  register(email: string, password: string, nom: string, prenom: string, telephone: string, administrateur: boolean, campus_id: number): Observable<any> {
     return this.http.post('https://localhost:8000/api/register', {
       email,
       password,
       nom,
       prenom,
       telephone,
-      administrateur
+      administrateur,
+      campus_id
     }, httpOptions);
   }
 }
