@@ -12,6 +12,7 @@ export class FiltreVilleComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

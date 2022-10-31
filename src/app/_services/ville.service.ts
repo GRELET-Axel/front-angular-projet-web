@@ -23,7 +23,7 @@ export class VilleService {
    * Récupération des villes de l'API
    */
   public getVilles(): Observable<ville[]> {
-    return this.httpClient.get<ville[]>('https://localhost:8000/api/villes.json', httpOptions);
+    return this.httpClient.get<ville[]>('https://localhost:8000/api/villes');
   }
 
     /**

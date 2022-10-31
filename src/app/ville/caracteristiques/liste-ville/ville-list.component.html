@@ -1,7 +1,8 @@
-<div>
+ <div>
   <p>Filtrer les villes</p>
   <app-filtre-ville></app-filtre-ville>
 </div>
 
-<button mat-raised-button class="py-2" (click)="ajouterModifier(null)">
-  <mat-icon>library_add</mat-icon> Ajouter une ville</button>
+  <app-ville-list-interface class="my-4" (modifier)="ajouterModifier($event)" ></app-ville-list-interface>
+  
+  <button mat-raised-button class="py-2" (click)="ajouterModifier(null)"><mat-icon>library_add</mat-icon> Ajouter une ville</button>
