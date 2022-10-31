@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +12,7 @@ import { CampusComponent } from './campus/campus.component';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormField, MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -21,22 +21,31 @@ import { RegisterComponent } from './register/register.component';
 import { CommonModule } from '@angular/common';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { MatIconModule } from '@angular/material/icon';
-import { VilleListComponent } from './ville/ville-list/ville-list.component';
-import { VilleFormComponent } from './ville/ville-form/ville-form.component';
+import { DialogAjoutVilleComponent } from './ville/caracteristiques/dialog-ajout/dialog-ajout-ville.component';
+import { FiltreVilleComponent } from './ville/interface/filtre-ville/filtre-ville.component';
+import { VilleListComponent } from './ville/caracteristiques/liste-ville/ville-list.component';
+import { AjoutVilleComponent } from './ville/interface/ajout-ville/ajout-ville.component';
+import { campus } from './models/campus';
+import { VilleListInterfaceComponent } from './ville/interface/ville-list-interface/ville-list-interface.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatOptionModule } from '@angular/material/core';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    ProfilComponent,
     AccueilComponent,
     CampusComponent,
-    VilleListComponent,
     LoginComponent,
+    NavbarComponent,
+    ProfilComponent,
     RegisterComponent,
-    VilleFormComponent
+    DialogAjoutVilleComponent,
+    VilleListComponent,
+    AjoutVilleComponent,
+    FiltreVilleComponent,
+    VilleListInterfaceComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +65,10 @@ import { VilleFormComponent } from './ville/ville-form/ville-form.component';
     MatPaginatorModule,
     FormsModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule, 
+    ReactiveFormsModule, 
+    MatDialogModule,
+    MatOptionModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

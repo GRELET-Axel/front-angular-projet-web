@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{!!data ? "Modifier":"Ajouter" }} une ville</h1>
+<div mat-dialog-content>
+  <app-ajout-ville #villeForm [ville]="data"></app-ajout-ville>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="annuler()">Annuler</button>
+  <button mat-button cdkFocusInitial [disabled]="!villeForm.form?.valid">{{!!data ? "Modifier":"Ajouter" }}</button>
+</div>

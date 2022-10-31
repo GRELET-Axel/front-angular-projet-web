@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VilleFormComponent } from './ville-form.component';
+import { VilleListComponent } from './ville-list.component';
 
-describe('VilleFormComponent', () => {
-  let component: VilleFormComponent;
-  let fixture: ComponentFixture<VilleFormComponent>;
+describe('VilleListComponent', () => {
+  let component: VilleListComponent;
+  let fixture: ComponentFixture<VilleListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VilleFormComponent ]
+      declarations: [ VilleListComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(VilleFormComponent);
+    fixture = TestBed.createComponent(VilleListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
