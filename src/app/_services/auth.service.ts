@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { subscriptionLogsToBeFn } from 'rxjs/internal/testing/TestScheduler';
+import { Participant } from '../models/Participant';
 
 
 const AUTH_API = +'http://localhost:8000/api/';
@@ -31,6 +32,12 @@ export class AuthService {
       prenom,
       telephone,
       administrateur
+    }, httpOptions);
+  }
+
+  update(participant: Participant, idUser: number): Observable<any> {
+    return this.http.post('https://localhost:8000/api/participants/' + idUser, {
+      participant
     }, httpOptions);
   }
 }
