@@ -22,15 +22,15 @@ export class AppComponent {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     if (this.isLoggedIn) {
       const user_id = this.tokenStorageService.getUser();
-      this.userService.getPublicContent(user_id).subscribe( // recupere les info d'un user avec son id
-        data => {
-          console.log(data)
-        },
-        err => {
-          console.log(err)
-        }
+      // this.userService.getPublicContent(user_id).subscribe( // recupere les info d'un user avec son id
+      //   data => {
+      //     console.log(data)
+      //   },
+      //   err => {
+      //     console.log(err)
+      //   }
   
-      );
+      // );
     }else{
       this.router.navigate(['/']);
     }

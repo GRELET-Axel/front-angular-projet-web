@@ -1,5 +1,7 @@
+body{width: 100%}
+
 .register-photo {
-    background:#f1f7fc;
+    background:#FFFF;
     padding:80px 0;
   }
   
@@ -13,7 +15,7 @@
   .register-photo .form-container {
     display:table;
     max-width:1200px;
-    width:90%;
+    width:100%;
     margin:0 auto;
     box-shadow:1px 1px 5px rgba(0,0,0,0.1);
   }
