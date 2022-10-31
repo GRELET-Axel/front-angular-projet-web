@@ -9,7 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { VilleFormComponent } from './ville/ville-form/ville-form.component';
 
 const routes: Routes = [  
-{ path: 'profil', component: ProfilComponent, data:{requiresLogin: true} },
+{ path: 'profil', component: ProfilComponent , data:{requiresLogin: true} },
 { path: 'ville', component: VilleListComponent , data:{requiresLogin: true}},
 { path: 'accueil', component: AccueilComponent, data:{requiresLogin: true}},
 { path: 'campus', component: CampusComponent, data:{requiresLogin: true} },

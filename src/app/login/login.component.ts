@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService,private router: Router, public tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
+    
    if(this.tokenStorage.getToken()){
     this.tokenStorage.signOut();
     // TODO requetes api pour kill le token
