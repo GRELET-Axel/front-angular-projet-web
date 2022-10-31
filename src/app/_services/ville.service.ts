@@ -36,7 +36,7 @@ export class VilleService {
     /**
    * Supprimer une ville de l'API
    */
-    public addVille(): Observable<ville> {
+    public addVille(ville: ville): Observable<ville> {
      return this.httpClient.post<ville>('https://localhost:8000/api/villes/', httpOptions);
     }
 }
